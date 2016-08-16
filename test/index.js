@@ -16,7 +16,7 @@ describe('stringify()', () => {
   })
 
   it('should stringify a Buffer', () => {
-    const input = Buffer.from('my-data')
+    const input = new Buffer('my-data')
     const output = sse.stringify({data: input})
     expect(output).to.be.a('string').that.equals(`data: ${input.toString('base64')}\n\n`)
   })
@@ -116,9 +116,9 @@ describe('parse()', () => {
   })
 
   it('should parse using a deserializer function', () => {
-    const data = Buffer.from('my-data')
+    const data = new Buffer('my-data')
     const input = sse.stringify({data})
-    const output = sse.parse(input, (payload) => Buffer.from(payload, 'base64').toString('utf-8'))
+    const output = sse.parse(input, (payload) => new Buffer(payload, 'base64').toString('utf-8'))
     expect(output).to.be.an('object').that.has.property('data', 'my-data')
   })
 
