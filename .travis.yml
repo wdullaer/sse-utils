@@ -4,3 +4,9 @@ node_js:
 - "4"
 - "0.12"
 - "0.10"
+after_script:
+  - codeclimate-test-reporter < lcov.info
+
+addons:
+    code_climate:
+        repo_token: 65371745d78cfbd0cb2f40bee7545dd63dc2541b8fffec57588adad0292bce95
