@@ -17,9 +17,9 @@
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "scripts": {
-    "coverage": "npm run lint && ./node_modules/.bin/istanbul cover --root lib/ ./node_modules/mocha/bin/_mocha",
     "lint": "./node_modules/.bin/eslint ./lib",
-    "test": "npm run lint && ./node_modules/.bin/mocha",
+    "mocha": "npm run lint && ./node_modules/.bin/mocha",
+    "test": "npm run lint && ./node_modules/.bin/istanbul cover --root lib/ ./node_modules/mocha/bin/_mocha",
     "prepublish": "npm run test"
   },
   "eslintConfig": {
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "chai": "~3.5.0",
+    "codeclimate-test-reporter": "~0.3.3",
     "eslint": "~3.3.1",
     "eslint-config-standard": "~5.3.5",
     "eslint-plugin-standard": "~2.0.0",
