@@ -1,4 +1,6 @@
-let {expect} = require('chai')
+'use strict'
+
+let expect = require('chai').expect
 
 let sse = require('../lib')
 

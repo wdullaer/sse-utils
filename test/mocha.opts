@@ -1,3 +1,2 @@
 --reporter spec
 --bail
---compilers js:babel-register
