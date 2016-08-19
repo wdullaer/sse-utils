@@ -1,4 +1,5 @@
 # SSE Utils
+![NPM Version](https://img.shields.io/npm/v/sse-utils.svg)
 [![Build Status](https://travis-ci.org/wdullaer/sse-utils.svg?branch=master)](https://travis-ci.org/wdullaer/sse-utils)
 ![Dependency Status](https://david-dm.org/wdullaer/sse-utils.svg)
 [![Code Climate](https://codeclimate.com/github/wdullaer/sse-utils/badges/gpa.svg)](https://codeclimate.com/github/wdullaer/sse-utils)
