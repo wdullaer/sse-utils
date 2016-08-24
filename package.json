@@ -17,6 +17,7 @@
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "scripts": {
+    "docs": "cat README-base.md > README.md && ./node_modules/.bin/documentation build -f md ./lib/index.js | sed 's/^# /### /g' >> README.md",
     "lint": "./node_modules/.bin/eslint ./lib",
     "mocha": "npm run lint && ./node_modules/.bin/mocha",
     "test": "npm run lint && ./node_modules/.bin/istanbul cover --root lib/ ./node_modules/mocha/bin/_mocha",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "chai": "~3.5.0",
     "codeclimate-test-reporter": "~0.3.3",
+    "documentation": "~4.0.0-beta10",
     "eslint": "~3.3.1",
     "eslint-config-standard": "~5.3.5",
     "eslint-plugin-standard": "~2.0.0",
