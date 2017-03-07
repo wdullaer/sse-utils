@@ -33,13 +33,13 @@
   },
   "devDependencies": {
     "chai": "~3.5.0",
-    "codeclimate-test-reporter": "~0.3.3",
+    "codeclimate-test-reporter": "~0.4.1",
     "documentation": "~4.0.0-beta10",
-    "eslint": "~3.3.1",
-    "eslint-config-standard": "~5.3.5",
-    "eslint-plugin-standard": "~2.0.0",
-    "eslint-plugin-promise": "~2.0.1",
+    "eslint": "~3.17.1",
+    "eslint-config-standard": "~7.0.0",
+    "eslint-plugin-standard": "~2.1.1",
+    "eslint-plugin-promise": "~3.5.0",
     "istanbul": "~0.4.4",
-    "mocha": "~3.0.2"
+    "mocha": "~3.2.0"
   }
 }
