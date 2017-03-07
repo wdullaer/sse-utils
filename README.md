@@ -1,5 +1,4 @@
 # SSE Utils
-
 [![Greenkeeper badge](https://badges.greenkeeper.io/wdullaer/sse-utils.svg)](https://greenkeeper.io/)
 ![NPM Version](https://img.shields.io/npm/v/sse-utils.svg)
 [![Build Status](https://travis-ci.org/wdullaer/sse-utils.svg?branch=master)](https://travis-ci.org/wdullaer/sse-utils)
@@ -49,9 +48,9 @@ Custom serialization function
 
 **Parameters**
 
--   `payload` **any** 
+-   `payload` **any**
 
-Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ### Deserializer
 
@@ -59,9 +58,9 @@ Custom deserialization function
 
 **Parameters**
 
--   `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `data` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
-Returns **any** 
+Returns **any**
 
 ### stringify
 
