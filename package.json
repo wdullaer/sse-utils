@@ -37,7 +37,7 @@
     "documentation": "~4.0.0-beta10",
     "eslint-config-standard": "~7.1.0",
     "eslint": "~3.19.0",
-    "eslint-plugin-standard": "~2.2.0",
+    "eslint-plugin-standard": "~2.3.0",
     "eslint-plugin-promise": "~3.5.0",
     "istanbul": "~0.4.4",
     "mocha": "~3.2.0"
