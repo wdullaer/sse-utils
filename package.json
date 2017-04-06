@@ -35,11 +35,13 @@
     "chai": "~3.5.0",
     "codeclimate-test-reporter": "~0.4.1",
     "documentation": "~4.0.0-beta10",
-    "eslint-config-standard": "~7.1.0",
+    "eslint-config-standard": "~10.1.0",
     "eslint": "~3.19.0",
-    "eslint-plugin-standard": "~2.3.0",
+    "eslint-plugin-import": "~2.2.0",
     "eslint-plugin-promise": "~3.5.0",
-    "istanbul": "~0.4.4",
+    "eslint-plugin-standard": "~2.3.1",
+    "eslint-plugin-node": "~4.2.2",
+    "istanbul": "~0.4.5",
     "mocha": "~3.2.0"
   }
 }
