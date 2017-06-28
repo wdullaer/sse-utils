@@ -1,6 +1,9 @@
 language: node_js
 node_js:
+- "8"
+- "7"
 - "6"
+- "5"
 - "4"
 after_script:
   - codeclimate-test-reporter < coverage/lcov.info
@@ -9,7 +12,7 @@ deploy:
   provider: npm
   email: wouter.dullaert@gmail.com
   api_key:
-    secure: "oqn59T86l7S7pwO6Bo3Ypiz+Cv3ARotUcAlXCI/56sO6LBE/ijyxK6XS+tmRJCTmvirLWl7/aTKYAe3e+0iIn77MvPFqXideJkZzwxGmCjrcjGK4kfmAhJOWdETKxLYZZaslPcIrJefn+pNPNaTfAiSszPDR5xmxWhLfNDkovTpbnBQsA7cRksSeYTtMp2sZfzAN09b/bn11TgwKtd3ftNQfvOAS9dbx4WKyMw+qxDunB448pnarqwNv1NLZS2AAIwBX/mFMvJCS51XMK01CBiAbyHc0kpAqyJ+HYBgk14PIRYX5Y/BzJSFOLgNOWOD/EjpMls5u5diJJaJrmY+Dcr+TpxMSn5//qBxPeIEMqzKxTDa44eqtXafFtB42K08vrrrUN6Ouke3ecIOFgkhoUtcx5DYs6YwYgyL1hJjTB+FGH5t1Qj9JXXh6UfEYuGuz8HAkRDFR6f0GJIUKV++jInCZ8l1QPA48WMlDbrZ9RZk3/o2aYMlY83PDCXaiqxSaJNcRwJ1fR/2Wyf4i7/A8J3G8bPHPIBroF7JyIV0tEOqNEyO9egT8puhBe2oDGvSaF0R+1qtJAzdHXMijcny2Q03CXVyBCbR6t1AhSjG8DiugdCLqcoJEaFfDQL9gBWtbn/3SF21o4LUhyd5nhgK9oOoBl9de2XAMpeDyA8vPock="
+    secure: "DO//7g14yaFsqw01WtMhlP8J9mvG8YP1iIEhI0HaUVf0lSB5ggylAvlhb727pAvu0ltJmeVZSlb8NwYRO0np9JAzdTIaL6a9QFTgYKaybNY+R2qwcuoSl2Vt73sIk2iQP1z+zAJhzRP1vALDNmcRsqgttgxdIN1w6LQYsJ+aX3DsB/P88+5tn2KlyV4e1TIiYhpXDjkKiaeFtmzmvDhGii2gE2Qw7GPnhQ+oGVD6zCDZT7F5kjJOCk/QQQQREtG5zI/Ml0n+gs+ugbb0Y+/v71q6AONoBco8OH2K1nNDIW8cA6/8xyDRygsT0ZRLvi1Uo0YS1usY8IxS0t5cy6RqvpShXz99gnNZhlg0RcnV5ZIfi5PiLhWYxvX/gbr23ggmmxa84X5mLDIFcDYA/h29aT8WuRl0Nn0D4OVt097UcoePM+1zfuEWgVcl5oZ5lN3CgadkfNBztxT0rhJRr4lTX7ugdrigIGVzgzeEVkQqBJcgBWuzr80jzn79wh6hJbt1QJciV/XTS/W/Gz1e6+Sae6E/mXSnSTupzKYK2Hl4sv0znolECRmkZsvefMQJca7EGkhixMgktfng0eRe1K1J/u8eBbDj7pg5nMBAUwsxwBRSipVZOVcZSnPuz1kpWzyGm6i6ZFrgU+OCqQZT2VCxl1IXdnfYdOiPl5z37mSfZvk="
   on:
     tags: true
     node: "6"
