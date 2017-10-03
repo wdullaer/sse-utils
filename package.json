@@ -20,8 +20,8 @@
     "docs": "cat README-base.md > README.md && ./node_modules/.bin/documentation build -f md ./lib/index.js | sed 's/^# /### /g' >> README.md",
     "lint": "./node_modules/.bin/eslint ./lib",
     "mocha": "npm run lint && ./node_modules/.bin/mocha",
-    "test": "npm run lint && ./node_modules/.bin/istanbul cover --root lib/ ./node_modules/mocha/bin/_mocha",
-    "prepublish": "npm run test"
+    "test": "npm run lint && ./node_modules/.bin/nyc --root lib/ ./node_modules/mocha/bin/mocha",
+    "prepublishOnly": "npm run test"
   },
   "eslintConfig": {
     "extends": "standard"
@@ -40,7 +40,7 @@
     "eslint-plugin-promise": "~3.5.0",
     "eslint-plugin-standard": "~3.0.1",
     "eslint-plugin-node": "~5.2.0",
-    "istanbul": "~0.4.5",
-    "mocha": "~4.0.0"
+    "mocha": "~4.0.0",
+    "nyc": "~11.2.1"
   }
 }
