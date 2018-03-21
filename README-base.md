@@ -16,16 +16,29 @@ It allows you parse a stringified SSE object (you'll normally use another librar
 npm install sse-utils
 ```
 
-## Example
+## Examples
 
+### Individual Messages
 ```javascript
 let sse = require('sse-utils');
 
-let input = {foo: 'bar'};
+let input = {data: {foo: 'bar'}};
 let sseString = sse.stringify(input);
 console.log(sseString);
-let output = sse.parse(input);
+let output = sse.parse(sseString);
 console.log(output);
+```
+
+### Multiple Messages
+```javascript
+let sse = require('sse-utils');
+
+let input = [{data: {foo: 'bar'}}, {data: {bar: 'baz'}}];
+let sseString = sse.stringifyAll(input);
+console.log(sseString);
+
+let output = sse.parseAll(sseString);
+console.log(sseString);
 ```
 
 ## TODO

@@ -1,7 +1,7 @@
 {
   "name": "sse-utils",
   "description": "Utility functions for serializing and deserializing SSE messages",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Wouter Dullaert",
   "homepage": "https://github.com/wdullaer/sse-utils",
   "bugs": "https://github.com/wdullaer/sse-utils/issues",

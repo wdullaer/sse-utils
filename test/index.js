@@ -88,6 +88,46 @@ describe('stringify()', () => {
   })
 })
 
+describe('stringifyAll()', () => {
+  it('should stringify an array of data', () => {
+    const input = 'my-data'
+    const output = sse.stringifyAll([{data: input}])
+    expect(output).to.be.a('string').that.equals(`data: ${input}\n\n`)
+  })
+
+  it('should stringify an array with multiple data items', () => {
+    const input = [{data: 'my-data'}, {data: 'my-other-data'}]
+    const expected = 'data: my-data\n\ndata: my-other-data\n\n'
+    const output = sse.stringifyAll(input)
+    expect(output).to.be.a('string').that.equals(expected)
+  })
+
+  it('should use the serializer function', () => {
+    const input = 'my-data'
+    const serializer = () => 'serialized'
+    const output = sse.stringifyAll([{data: input}], serializer)
+    expect(output).to.be.a('string').that.equals('data: serialized\n\n')
+  })
+
+  it('should throw an error when the input is not an array', () => {
+    const input = 'foo'
+    const stringifyAll = sse.stringifyAll.bind(null, input)
+    expect(stringifyAll).to.throw(TypeError)
+  })
+
+  it('should throw an error if a object in the input does not pass sanitization', () => {
+    const input = [{foo: 'bar'}]
+    const stringifyAll = sse.stringifyAll.bind(null, input)
+    expect(stringifyAll).to.throw(TypeError)
+  })
+
+  it('should throw an error if the serializer does not return a string', () => {
+    const serializer = () => ({foo: 'bar'})
+    const stringifyAll = sse.stringifyAll.bind(null, [{data: 'my-data'}], serializer)
+    expect(stringifyAll).to.throw(TypeError)
+  })
+})
+
 describe('parse()', () => {
   it('should parse string data', () => {
     const data = 'my-data'
@@ -143,5 +183,63 @@ describe('parse()', () => {
   it('should throw an error if the input does not end with 2 newlines', () => {
     const parse = sse.parse.bind(null, 'my-data')
     expect(parse).to.throw(TypeError)
+  })
+})
+
+describe('parseAll()', () => {
+  it('should parse string data to an array of objects', () => {
+    const data = 'my-data'
+    const input = sse.stringify({data})
+    const output = sse.parseAll(input)
+    expect(output).to.be.an('array').that.deep.equals([{data}])
+  })
+
+  it('should parse multiple items into an array', () => {
+    const data = ['my-data', 'my-other-data']
+    const input = sse.stringifyAll(data.map(str => ({data: str})))
+    const output = sse.parseAll(input)
+    expect(output).to.be.an('array').that.deep.equals(data.map(str => ({data: str})))
+  })
+
+  it('should parse multiple items containing an sse comment into an array', () => {
+    const input = 'data: my-data\n\n:some-other-data\n\ndata: my-other-data\n\n'
+    const expected = [{data: 'my-data'}, {}, {data: 'my-other-data'}]
+    const output = sse.parseAll(input)
+    expect(output).to.be.an('array').that.deep.equals(expected)
+  })
+
+  it('should parse multiple items if the trailing double newlines are missing', () => {
+    const input = 'data: my-data\n\ndata: my-other-data'
+    const expected = [{data: 'my-data'}, {data: 'my-other-data'}]
+    const output = sse.parseAll(input)
+    expect(output).to.be.an('array').that.deep.equals(expected)
+  })
+
+  it('should parse using a deserializer function', () => {
+    const data = new Buffer('my-data')
+    const expected = [{data: 'my-data'}]
+    const input = sse.stringify({data})
+    const output = sse.parseAll(input, (payload) => new Buffer(payload, 'base64').toString('utf-8'))
+    expect(output).to.be.an('array').that.deep.equals(expected)
+  })
+
+  it('should return an empty array if the input is the empty string', () => {
+    const input = ''
+    const expected = []
+    const output = sse.parseAll(input)
+    expect(output).to.deep.equal(expected)
+  })
+
+  it('should return an empty array if the input is undefined', () => {
+    const input = undefined
+    const expected = []
+    const output = sse.parseAll(input)
+    expect(output).to.deep.equal(expected)
+  })
+
+  it('should throw an error if the input is not a string', () => {
+    const input = {foo: 'bar'}
+    const parseAll = sse.parseAll.bind(null, input)
+    expect(parseAll).to.throw(TypeError)
   })
 })
