@@ -4,6 +4,7 @@ node_js:
 - '7'
 - '6'
 - '4'
+- '10'
 after_script:
 - node_modules/.bin/nyc report --reporter=text-lcov | codeclimate-test-reporter
 deploy:
