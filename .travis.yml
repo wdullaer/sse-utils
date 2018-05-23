@@ -1,7 +1,7 @@
 language: node_js
 node_js:
+- '10'
 - '8'
-- '7'
 - '6'
 - '4'
 after_script:
@@ -14,7 +14,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    node: '6'
+    node: '8'
 addons:
   code_climate:
     repo_token: 65371745d78cfbd0cb2f40bee7545dd63dc2541b8fffec57588adad0292bce95
