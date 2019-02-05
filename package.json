@@ -41,6 +41,6 @@
     "eslint-plugin-standard": "~4.0.0",
     "eslint-plugin-node": "~8.0.1",
     "mocha": "~5.2.0",
-    "nyc": "~13.1.0"
+    "nyc": "~13.2.0"
   }
 }
