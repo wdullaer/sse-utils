@@ -21,6 +21,7 @@
     "lint": "./node_modules/.bin/eslint ./lib",
     "mocha": "npm run lint && ./node_modules/.bin/mocha",
     "test": "npm run lint && ./node_modules/.bin/nyc --root lib/ ./node_modules/mocha/bin/mocha",
+    "coverage": "./node_modules/.bin/nyc report --reporter=lcov",
     "prepublishOnly": "npm run test"
   },
   "eslintConfig": {

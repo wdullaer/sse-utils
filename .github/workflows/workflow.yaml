@@ -21,6 +21,14 @@ jobs:
         node-version: ${{matrix.node-version}}
     - run: npm ci
     - run: npm test
+    - name: Code coverage
+      if: ${{ matrix.node-version == '12.x' }}
+      uses: paambaati/codeclimate-action@v2.6.0
+      env:
+        CC_TEST_REPORTER_ID: 65371745d78cfbd0cb2f40bee7545dd63dc2541b8fffec57588adad0292bce95
+      with:
+        coverageCommand: npm run coverage
+
   publish:
     if: startsWith(github.ref, 'refs/tags/v')
     needs: test
